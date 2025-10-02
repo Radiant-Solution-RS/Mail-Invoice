@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import thumbnail from "../../assets/thumbnail.png";
+import vid from "../../assets/video.mp4";
+import play from "../../assets/play.png";
 
 export default function VideoSection() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -19,8 +21,8 @@ export default function VideoSection() {
                 onClick={() => setIsPlaying(true)}
                 className="absolute inset-0 flex items-center justify-center"
               >
-                <div className="bg-black text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl opacity-80 hover:opacity-100 transition">
-                  ▶
+                <div className=" text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl opacity-80 hover:opacity-100 transition">
+                  <img src={play} alt="play" />
                 </div>
               </button>
             </div>
@@ -28,7 +30,7 @@ export default function VideoSection() {
             <div className="relative pb-[56.25%] h-0">
               <iframe
                 className="absolute top-0 left-0 w-full h-full rounded-xl"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+                src={vid}
                 title="Demo Video"
                 frameBorder="0"
                 allow="autoplay; encrypted-media; fullscreen"

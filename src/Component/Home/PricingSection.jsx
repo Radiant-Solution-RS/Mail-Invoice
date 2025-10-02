@@ -14,7 +14,7 @@ export default function PricingSection() {
         "Basic exports (CSV, Excel)",
         "Basic support",
       ],
-      size: "short", // 👈 chhota card
+      size: "short", // chhota card
     },
     {
       name: "Pro",
@@ -31,7 +31,7 @@ export default function PricingSection() {
         "Detailed usage analytics",
         "Priority email support",
       ],
-      size: "medium", // 👈 beech wala card
+      size: "medium", // beech wala card
       highlight: true,
     },
     {
@@ -50,7 +50,7 @@ export default function PricingSection() {
         "Data retention & compliance options",
         "Priority support with SLA response",
       ],
-      size: "tall", // 👈 sabse bara card
+      size: "tall", // sabse bara card
     },
   ];
 
