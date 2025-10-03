@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function PricingSection() {
   const plans = [
@@ -14,7 +15,7 @@ export default function PricingSection() {
         "Basic exports (CSV, Excel)",
         "Basic support",
       ],
-      size: "short", // chhota card
+      size: "short",
     },
     {
       name: "Pro",
@@ -31,7 +32,7 @@ export default function PricingSection() {
         "Detailed usage analytics",
         "Priority email support",
       ],
-      size: "medium", // beech wala card
+      size: "medium",
       highlight: true,
     },
     {
@@ -50,33 +51,65 @@ export default function PricingSection() {
         "Data retention & compliance options",
         "Priority support with SLA response",
       ],
-      size: "tall", // sabse bara card
+      size: "tall",
     },
   ];
 
   return (
-    <section className="px-8 py-20 bg-white">
+    <section className="px-6 md:px-12 py-20 bg-gradient-to-b from-white via-gray-50 to-white">
       <div className="max-w-6xl mx-auto text-center">
         {/* Section Header */}
-        <p className="uppercase text-gray-500 text-sm font-medium mb-2">
+        <motion.p
+          className="uppercase text-gray-500 text-sm font-medium mb-2"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           Simple, Scalable, Transparent
-        </p>
-        <h2 className="text-4xl font-bold mb-4">
+        </motion.p>
+
+        <motion.h2
+          className="text-3xl md:text-5xl font-bold mb-4"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
           Plans that grow with your needs
-        </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto mb-12">
+        </motion.h2>
+
+        <motion.p
+          className="text-gray-600 max-w-2xl mx-auto mb-12 text-base md:text-lg"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
           From free mailbox monitoring to enterprise-grade automation with SSO
           and custom compliance, choose a plan that matches your invoice volume
           and integration level.
-        </p>
+        </motion.p>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: { staggerChildren: 0.2 },
+            },
+          }}
+        >
           {plans.map((plan, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`rounded-2xl shadow-lg p-8 flex flex-col text-left transition hover:shadow-xl 
-                ${plan.highlight ? "bg-gray-50 border-2 border-gray-200 scale-105" : "bg-white"}
+              className={`relative rounded-2xl shadow-lg p-8 flex flex-col text-left 
+                transition-all duration-300 hover:shadow-2xl hover:-translate-y-2
+                ${plan.highlight ? "bg-gray-50 border-2 border-indigo-500 scale-105" : "bg-white"}
                 ${
                   plan.size === "short"
                     ? "h-[420px]"
@@ -85,7 +118,20 @@ export default function PricingSection() {
                     : "h-[650px]"
                 }
               `}
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.7 }}
+              whileHover={{ scale: 1.05 }}
             >
+              {/* Badge for highlight */}
+              {plan.highlight && (
+                <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-xs font-medium px-3 py-1 rounded-full shadow">
+                  Most Popular
+                </span>
+              )}
+
               {/* Title */}
               <h3
                 className={`text-lg font-semibold mb-4 ${
@@ -102,22 +148,39 @@ export default function PricingSection() {
               </div>
 
               {/* Button */}
-              <button className="w-full bg-black text-white py-2 px-4 rounded-lg mb-6 hover:bg-gray-800 transition">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`w-full py-2 px-4 rounded-lg mb-6 font-medium transition
+                  ${
+                    plan.highlight
+                      ? "bg-indigo-600 text-white hover:bg-indigo-700"
+                      : "bg-black text-white hover:bg-gray-800"
+                  }
+                `}
+              >
                 {plan.button}
-              </button>
+              </motion.button>
 
               {/* Features */}
               <ul className="space-y-3 text-gray-600 text-sm overflow-y-auto">
                 {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-start">
+                  <motion.li
+                    key={i}
+                    className="flex items-start"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.05 }}
+                  >
                     <span className="text-green-500 mr-2">✔</span>
                     <span>{feature}</span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
