@@ -109,15 +109,6 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
 
       {/* Bottom Section */}
       <div className="p-4 border-t border-gray-200">
-        {/* Language Toggle ✅ */}
-        <button
-          onClick={() =>
-            i18n.changeLanguage(i18n.language === "en" ? "de" : "en")
-          }
-          className="w-full mb-3 text-sm py-2 border rounded-md text-center hover:bg-gray-50 transition"
-        >
-          {i18n.language === "en" ? "🇩🇪 Switch to German" : "🇬🇧 Switch to English"}
-        </button>
 
         {/* User Profile */}
         <div className="flex items-center gap-3 mb-3">
