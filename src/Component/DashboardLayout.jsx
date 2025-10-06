@@ -5,6 +5,8 @@ import MainContent from "./MainContent";
 import EmailSetup from "./EmailSetup";
 import DataRetrieval from "./DataRetrieval";
 import ScrapedData from "./ScrapedData";
+import RulesAutomation from "./RulesAutomation";
+import ExportTable from "./ExportTable";
 
 function DashboardLayout() {
   const [activeMenu, setActiveMenu] = useState("home"); // 👈 keys only
@@ -20,13 +22,13 @@ function DashboardLayout() {
       case "scrapedData":
         return <ScrapedData />;
       case "rulesAutomation":
-        return <div className="p-6">⚙️ Rules & Automation</div>;
+        return <RulesAutomation />;
       case "masterData":
         return <div className="p-6">👥 Master Data</div>;
-      case "reports":
+      case "suppliers":
         return <div className="p-6">📈 Reports</div>;
-      case "nugget":
-        return <div className="p-6">💡 Nugget content</div>;
+      case "export":
+        return <ExportTable />;
       default:
         return <div className="p-6">🔍 Select a menu from Sidebar</div>;
     }

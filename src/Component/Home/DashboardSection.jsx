@@ -1,24 +1,27 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import dashboardImg from "../../assets/Dashboard.png";
 
 export default function DashboardSection() {
+  const { t, i18n } = useTranslation();
+
   const features = [
     {
-      title: "Multi-account Intake",
-      desc: "Track your progress and motivate your efforts everyday.",
+      title: t("dashboard.feature1.title"),
+      desc: t("dashboard.feature1.desc"),
     },
     {
-      title: "Smart Invoice Detection",
-      desc: "Set and track goals with manageable task breakdowns.",
+      title: t("dashboard.feature2.title"),
+      desc: t("dashboard.feature2.desc"),
     },
     {
-      title: "Supplier Directory & Dedupe",
-      desc: "Ensure your daily safety with tighter encryption.",
+      title: t("dashboard.feature3.title"),
+      desc: t("dashboard.feature3.desc"),
     },
     {
-      title: "Rules & Automation",
-      desc: "Meet targets and deadlines that matter most.",
+      title: t("dashboard.feature4.title"),
+      desc: t("dashboard.feature4.desc"),
     },
   ];
 
@@ -32,13 +35,18 @@ export default function DashboardSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold leading-snug">
-          Automating Financial <br />
-          <span className="text-indigo-600">Workflows From Email</span>
+        <h2
+          className={`font-bold leading-snug ${
+            i18n.language === "de"
+              ? "text-3xl md:text-[1.9rem]" // Slightly smaller for German text
+              : "text-3xl md:text-4xl"
+          }`}
+        >
+          {t("dashboard.title")} <br />
+          <span className="text-indigo-600">{t("dashboard.subtitle")}</span>
         </h2>
-        <p className="mt-4 text-gray-600 text-base md:text-lg">
-          Mail Invoices captures PDFs and XML e-invoices <br />
-          from Gmail, Outlook, or IMAP with smart OCR.
+        <p className="mt-4 text-gray-600 text-base md:text-lg leading-relaxed">
+          {t("dashboard.description")}
         </p>
       </motion.div>
 
@@ -67,22 +75,20 @@ export default function DashboardSection() {
         viewport={{ once: true }}
         variants={{
           hidden: {},
-          visible: {
-            transition: { staggerChildren: 0.2 },
-          },
+          visible: { transition: { staggerChildren: 0.2 } },
         }}
       >
         {features.map((item, index) => (
           <motion.div
             key={index}
-            className="text-center space-y-3 p-4 rounded-lg hover:shadow-md transition"
+            className="text-center space-y-3 p-4 rounded-lg hover:shadow-md transition bg-white"
             variants={{
               hidden: { opacity: 0, y: 40 },
               visible: { opacity: 1, y: 0 },
             }}
             transition={{ duration: 0.6 }}
           >
-            <div className="mx-auto w-12 h-12 bg-black text-white flex items-center justify-center rounded-full">
+            <div className="mx-auto w-12 h-12 bg-black text-white flex items-center justify-center rounded-full font-semibold">
               {index + 1}
             </div>
             <h3 className="text-lg font-semibold">{item.title}</h3>
@@ -91,7 +97,7 @@ export default function DashboardSection() {
               href="#"
               className="text-sm font-medium text-indigo-600 hover:underline"
             >
-              Learn More →
+              {t("dashboard.learnMore")} →
             </a>
           </motion.div>
         ))}
@@ -107,9 +113,9 @@ export default function DashboardSection() {
         <motion.button
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
-          className="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition"
+          className="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition text-sm sm:text-base md:text-lg"
         >
-          View All Features
+          {t("dashboard.cta")}
         </motion.button>
       </motion.div>
     </section>
