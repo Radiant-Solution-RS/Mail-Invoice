@@ -19,13 +19,17 @@ const ConnectedAccounts = ({ onConnectNew }) => {
     { provider: "Outlook", email: "ap@abc.com", status: "Pending", lastSync: "-" },
   ];
 
+
   const getStatusColor = (status) => {
     switch (status) {
       case "Connected":
+        return "text-green-600 font-semibold";
       case "Error":
+        return "text-red-600 font-semibold";
       case "Pending":
+        return "text-yellow-500 font-semibold";
       case "Reconnect":
-        return "text-black font-semibold";
+        return "text-blue-600 font-semibold";
       default:
         return "text-gray-600";
     }
@@ -35,7 +39,7 @@ const ConnectedAccounts = ({ onConnectNew }) => {
     <div className="p-2">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold text-gray-800">
+        <h2 className="text-2xl lowercase font-bold text-gray-800">
           {t("connectedAccounts.title")}
         </h2>
         <button
@@ -43,31 +47,31 @@ const ConnectedAccounts = ({ onConnectNew }) => {
             setIsCompact(true);
             if (onConnectNew) onConnectNew();
           }}
-          className="bg-black text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors"
+          className="bg-black text-white  lowercase px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors"
         >
           {t("connectedAccounts.connectNew")}
         </button>
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-        <div className={`overflow-x-auto ${isCompact ? "max-h-64 overflow-y-auto" : ""}`}>
+      <div className="bg-white rounded-lg lowercase border border-gray-200 overflow-hidden">
+        <div className={`overflow-x-auto lowercase ${isCompact ? "max-h-64 overflow-y-auto" : ""}`}>
           <table className="w-full">
-            <thead className="bg-gray-50 border-b border-gray-200 sticky top-0 z-10">
+            <thead className="bg-gray-50 lowercase border-b border-gray-200 sticky top-0 z-10">
               <tr>
-                <th className="px-6 py-3 text-sm font-semibold text-gray-800 text-center">
+                <th className="px-6 py-3 lowercase text-sm font-semibold text-gray-800 text-center">
                   {t("connectedAccounts.provider")}
                 </th>
-                <th className="px-6 py-3 text-sm font-semibold text-gray-800 text-center">
+                <th className="px-6 py-3 lowercase text-sm font-semibold text-gray-800 text-center">
                   {t("connectedAccounts.email")}
                 </th>
-                <th className="px-6 py-3 text-sm font-semibold text-gray-800 text-center">
+                <th className="px-6 py-3 lowercase text-sm font-semibold text-gray-800 text-center">
                   {t("connectedAccounts.status")}
                 </th>
-                <th className="px-6 py-3 text-sm font-semibold text-gray-800 text-center">
+                <th className="px-6 py-3 lowercase text-sm font-semibold text-gray-800 text-center">
                   {t("connectedAccounts.lastSync")}
                 </th>
-                <th className="px-6 py-3 text-sm font-semibold text-gray-800 text-center">
+                <th className="px-6 py-3 lowercase text-sm font-semibold text-gray-800 text-center">
                   {t("connectedAccounts.actions")}
                 </th>
               </tr>
@@ -75,18 +79,18 @@ const ConnectedAccounts = ({ onConnectNew }) => {
             <tbody className="divide-y divide-gray-200">
               {accounts.map((account, index) => (
                 <tr key={index} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 text-sm text-gray-700 text-center">{account.provider}</td>
-                  <td className="px-6 py-4 text-sm text-gray-700 text-center">{account.email}</td>
-                  <td className={`px-6 py-4 text-sm text-center ${getStatusColor(account.status)}`}>
+                  <td className="px-6 py-4 text-sm lowercase text-gray-700 text-center">{account.provider}</td>
+                  <td className="px-6 py-4 text-sm lowercase text-gray-700 text-center">{account.email}</td>
+                  <td className={`px-6 py-4 text-sm lowercase text-center ${getStatusColor(account.status)}`}>
                     {t(`connectedAccounts.statuses.${account.status.toLowerCase()}`, account.status)}
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-500 text-center">{account.lastSync}</td>
+                  <td className="px-6 py-4 lowercase text-sm text-gray-500 text-center">{account.lastSync}</td>
                   <td className="px-6 py-4">
-                    <div className="flex items-center gap-4 justify-center">
-                      <button className="bg-black text-white px-3 py-1 rounded-lg text-sm font-medium hover:bg-gray-800">
+                    <div className="flex items-center lowercase gap-4 justify-center">
+                      <button className="bg-black text-white lowercase px-3 py-1 rounded-lg text-sm font-medium hover:bg-gray-800">
                         {t("connectedAccounts.reconnect")}
                       </button>
-                      <button className="border border-gray-300 text-gray-600 px-3 py-1 rounded text-sm font-medium hover:bg-gray-100">
+                      <button className="border border-gray-300 lowercase text-gray-600 px-3 py-1 rounded text-sm font-medium hover:bg-gray-100">
                         {t("connectedAccounts.remove")}
                       </button>
                     </div>

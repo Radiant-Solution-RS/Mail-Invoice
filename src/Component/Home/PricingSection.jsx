@@ -5,15 +5,10 @@ import { useTranslation } from "react-i18next";
 export default function PricingSection() {
   const { t } = useTranslation();
 
-  const plans = [
-    t("pricing.plans.free"),
-    t("pricing.plans.pro"),
-    t("pricing.plans.business"),
-  ];
-
   return (
     <section className="px-6 md:px-12 py-20 bg-gradient-to-b from-white via-gray-50 to-white">
       <div className="max-w-6xl mx-auto text-center">
+        {/* Header */}
         <motion.p
           className="uppercase text-gray-500 text-sm font-medium mb-2"
           initial={{ opacity: 0, y: 20 }}
@@ -44,6 +39,7 @@ export default function PricingSection() {
           {t("pricing.subtitle")}
         </motion.p>
 
+        {/* Pricing Cards */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch"
           initial="hidden"
@@ -61,17 +57,16 @@ export default function PricingSection() {
             return (
               <motion.div
                 key={index}
-                className={`relative rounded-2xl shadow-lg p-8 flex flex-col justify-between text-left transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 ${
+                className={`relative rounded-2xl shadow-lg p-8 flex flex-col justify-between text-left h-full ${
                   highlight
                     ? "bg-gray-50 border-2 border-indigo-500"
-                    : "bg-white"
+                    : "bg-white border border-gray-100"
                 }`}
                 variants={{
                   hidden: { opacity: 0, y: 40 },
                   visible: { opacity: 1, y: 0 },
                 }}
                 transition={{ duration: 0.7 }}
-                whileHover={{ scale: 1.05 }}
               >
                 {highlight && (
                   <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-xs font-medium px-3 py-1 rounded-full shadow">
@@ -79,7 +74,7 @@ export default function PricingSection() {
                   </span>
                 )}
 
-                <div>
+                <div className="flex flex-col flex-grow">
                   <h3
                     className={`text-lg font-semibold mb-4 ${
                       highlight ? "text-indigo-600" : "text-gray-800"
@@ -93,19 +88,19 @@ export default function PricingSection() {
                     <span className="text-gray-600 ml-1">/monthly</span>
                   </div>
 
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`w-full py-2 px-4 rounded-lg mb-6 font-medium transition ${
+                  {/* Button without hover */}
+                  <button
+                    className={`w-full py-2 px-4 rounded-lg mb-6 font-medium ${
                       highlight
-                        ? "bg-indigo-600 text-white hover:bg-indigo-700"
-                        : "bg-black text-white hover:bg-gray-800"
+                        ? "bg-indigo-600 text-white"
+                        : "bg-black text-white"
                     }`}
                   >
                     {plan.button}
-                  </motion.button>
+                  </button>
 
-                  <ul className="space-y-3 text-gray-600 text-sm">
+                  {/* Features */}
+                  <ul className="space-y-3 text-gray-600 text-sm flex-grow">
                     {plan.features.map((feature, i) => (
                       <motion.li
                         key={i}

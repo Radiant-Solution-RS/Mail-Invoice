@@ -13,16 +13,16 @@ i18n
 
                 // Sidebar
               sidebar: {
-  home: "Home",
-  emailSetup: "Email Setup",
-  dataRetrieval: "Data Retrieval",
-  scrapedData: "Scraped Data",
-  rulesAutomation: "Rules & Automation",
-  masterData: "Master Data",
-  suppliers: "Suppliers",  
-  export: "Export",        
-  userManagement: "User Management",
-  account: "Account",      
+  home: "home",
+  emailSetup: "email Setup",
+  dataRetrieval: "data Retrieval",
+  scrapedData: "scraped Data",
+  rulesAutomation: "rules & automation",
+  masterData: "master data",
+  suppliers: "suppliers",  
+  export: "export",        
+  userManagement: "user management",
+  account: "account",      
   help: "Help and Documentation",
 },
                 hero: {
@@ -47,11 +47,11 @@ i18n
                 // Connect Component
                 connect: {
                     title: "Connect New Account",
-                    prev: "Previous",
+                    prev: "previous",
                     next: "Next",
                     finishBtn: "Finish",
-                    connectMailbox: "Connect Mailbox",
-                    addRule: "Add Rule",
+                    connectMailbox: "connect mailbox",
+                    addRule: "add rule",
                     steps: {
                         chooseProvider: "Choose Provider",
                         authenticate: "Authenticate",
@@ -62,19 +62,19 @@ i18n
                 },
 
  statsCards: {
-      emailsProcessed: "Emails Processed Today",
-      emailsPending: "Emails Pending Today",
-      emailsFailed: "Emails Failed Today",
+      emailsProcessed: "emails processed today",
+      emailsPending: "emails pending today",
+      emailsFailed: "emails failed today",
     },
                
 
                 statusCard: {
-                    first: "First",
-                    last: "Last",
-                    supplierTitle: "Supplier",
-                    supplierSubtitle: "Format Sent",
-                    emailTitle: "Already Sending via Email",
-                    emailSubtitle: "Not Yet Sending via Email"
+                    first: "first",
+                    last: "last",
+                    supplierTitle: "supplier",
+                    supplierSubtitle: "format Sent",
+                    emailTitle: "already sending via email",
+                    emailSubtitle: "not yet sending via email"
                 },
                 // ChartsSection
                 charts: {
@@ -99,16 +99,16 @@ i18n
         - View retrieval logs`
                 },
                 invoicesTable: {
-                    title: "Scraped Data (Invoices)",
-                    date: "Date",
-                    company: "Company",
-                    invoice: "Invoice #",
-                    amount: "Amount",
-                    format: "Format",
-                    status: "Status",
-                    parsed: "Parsed",
-                    pending: "Pending",
-                    error: "Error"
+                    title: "scraped data (Invoices)",
+                    date: "date",
+                    company: "company",
+                    invoice: "invoice #",
+                    amount: "amount",
+                    format: "format",
+                    status: "status",
+                    parsed: "parsed",
+                    pending: "pending",
+                    error: "error"
                 },
                   dashboard: {
     "title": "Automating Financial",
@@ -227,13 +227,13 @@ i18n
                     nextRun: "Next Run",
                     runNow: "Run Now"
                 },
-                // RecentInvoicesTable
+                
                 invoicesTable: {
-                    title: "Recently Crawled Invoices",
-                    company: "Company",
-                    amount: "Amount",
-                    invoice: "Invoice #",
-                    email: "Email Account",
+                    title: "recently crawled invoices",
+                    company: "company",
+                    amount: "amount",
+                    invoice: "invoice #",
+                    email: "email Account",
                 },
                 tableActions: {
   assign: "Assign",

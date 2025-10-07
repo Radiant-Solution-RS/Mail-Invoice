@@ -6,24 +6,24 @@ import dashboardImg from "../../assets/Dashboard.png";
 export default function DashboardSection() {
   const { t, i18n } = useTranslation();
 
-  const features = [
-    {
-      title: t("dashboard.feature1.title"),
-      desc: t("dashboard.feature1.desc"),
-    },
-    {
-      title: t("dashboard.feature2.title"),
-      desc: t("dashboard.feature2.desc"),
-    },
-    {
-      title: t("dashboard.feature3.title"),
-      desc: t("dashboard.feature3.desc"),
-    },
-    {
-      title: t("dashboard.feature4.title"),
-      desc: t("dashboard.feature4.desc"),
-    },
-  ];
+  // const features = [
+  //   {
+  //     title: t("dashboard.feature1.title"),
+  //     desc: t("dashboard.feature1.desc"),
+  //   },
+  //   {
+  //     title: t("dashboard.feature2.title"),
+  //     desc: t("dashboard.feature2.desc"),
+  //   },
+  //   {
+  //     title: t("dashboard.feature3.title"),
+  //     desc: t("dashboard.feature3.desc"),
+  //   },
+  //   {
+  //     title: t("dashboard.feature4.title"),
+  //     desc: t("dashboard.feature4.desc"),
+  //   },
+  // ];
 
   return (
     <section className="px-6 md:px-12 py-20 bg-white text-center overflow-hidden">
@@ -52,7 +52,7 @@ export default function DashboardSection() {
 
       {/* Dashboard Image */}
       <motion.div
-        className="max-w-5xl mx-auto mb-16 rounded-2xl overflow-hidden shadow-lg"
+        className="max-w-4xl mx-auto mb-16 rounded-2xl overflow-hidden shadow-lg"
         initial={{ scale: 0.9, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
         viewport={{ once: true }}
@@ -62,13 +62,13 @@ export default function DashboardSection() {
           src={dashboardImg}
           alt="Dashboard Preview"
           className="w-full"
-          whileHover={{ scale: 1.03, y: -5 }}
+          // whileHover={{ scale: 1.03, y: -5 }}
           transition={{ type: "spring", stiffness: 200 }}
         />
       </motion.div>
 
       {/* Features */}
-      <motion.div
+      {/* <motion.div
         className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-6xl mx-auto mb-12"
         initial="hidden"
         whileInView="visible"
@@ -101,7 +101,7 @@ export default function DashboardSection() {
             </a>
           </motion.div>
         ))}
-      </motion.div>
+      </motion.div> */}
 
       {/* CTA Button */}
       <motion.div
@@ -111,7 +111,7 @@ export default function DashboardSection() {
         transition={{ duration: 0.8 }}
       >
         <motion.button
-          whileHover={{ scale: 1.08 }}
+          // whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
           className="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition text-sm sm:text-base md:text-lg"
         >

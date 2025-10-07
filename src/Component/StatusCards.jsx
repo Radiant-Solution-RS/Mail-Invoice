@@ -18,7 +18,7 @@ const StatusCard = ({ title, subtitle, data }) => {
       <div className="flex items-center gap-2 mb-5">
         <button
           onClick={() => handleSort("first")}
-          className={`flex items-center justify-center gap-2 min-w-[150px] px-6 py-2 rounded-full text-xs font-semibold transition-all ${
+          className={`flex items-center  lowercase justify-center gap-2 min-w-[150px] px-6 py-2 rounded-full text-xs font-semibold transition-all ${
             sortOrder === "first"
               ? "bg-black text-white"
               : "bg-white text-gray-700 border border-gray-200 hover:bg-gray-50"
@@ -36,10 +36,10 @@ const StatusCard = ({ title, subtitle, data }) => {
 
         <button
           onClick={() => handleSort("last")}
-          className={`flex items-center justify-center gap-2 min-w-[150px] px-6 py-2 rounded-full text-xs font-semibold transition-all ${
+          className={`flex items-center justify-center lowercase gap-2 min-w-[150px] px-6 py-2 rounded-full text-xs font-semibold transition-all ${
             sortOrder === "last"
               ? "bg-black text-white"
-              : "bg-white text-gray-700 border border-gray-200 hover:bg-gray-50"
+              : "bg-white text-gray-700 border lowercase border-gray-200 hover:bg-gray-50"
           }`}
         >
           {t("statusCard.last")}
@@ -54,23 +54,23 @@ const StatusCard = ({ title, subtitle, data }) => {
       </div>
 
       {/* Title Section */}
-      <div className="mb-4 pb-3 border-b border-gray-100">
-        <h3 className="text-sm font-semibold text-gray-900">{title}</h3>
-        <p className="text-xs text-gray-500 mt-0.5">{subtitle}</p>
+      <div className="mb-4 pb-3 border-b lowercase border-gray-100">
+        <h3 className="text-sm font-semibold lowercase text-gray-900">{title}</h3>
+        <p className="text-xs text-gray-500 lowercase mt-0.5">{subtitle}</p>
       </div>
 
       {/* Data List */}
       <div className="space-y-2">
         {sortedData.map((item, idx) => (
-          <div key={idx} className="flex items-center justify-between py-2.5">
-            <span className="text-sm text-gray-900 font-medium">
+          <div key={idx} className="flex items-center lowercase justify-between py-2.5">
+            <span className="text-sm text-gray-900 lowercase font-medium">
               {item.name}
             </span>
             <div className="flex gap-1.5">
               {item.badges.map((badge, badgeIdx) => (
                 <span
                   key={badgeIdx}
-                  className={`px-2.5 py-1 rounded text-xs font-medium ${badge.color}`}
+                  className={`px-2.5 py-1 rounded lowercase text-xs font-medium ${badge.color}`}
                 >
                   {badge.text}
                 </span>

@@ -35,8 +35,8 @@ export default function RulesAutomation() {
     <div className="p-6 bg-white rounded-xl shadow-md  m-6">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-2xl font-inter font-bold">Rules & Automation</h2>
-        <button className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800">
+        <h2 className="text-2xl lowercase font-inter font-bold">Rules & Automation</h2>
+        <button className="px-4 py-2  lowercase bg-black text-white rounded-lg hover:bg-gray-800">
           Add New Rule
         </button>
       </div>
@@ -56,11 +56,11 @@ export default function RulesAutomation() {
           <tbody>
             {data.map((row, idx) => (
               <tr key={idx} className="hover:bg-gray-50 text-sm">
-                <td className="p-3 border-b">{row.date}</td>
-                <td className="p-3 border-b">{row.name}</td>
-                <td className="p-3 border-b">{row.trigger}</td>
-                <td className="p-3 border-b">{row.action}</td>
-                <td className={`p-3 border-b ${getStatusStyle(row.status)}`}>
+                <td className="p-3 lowercase border-b">{row.date}</td>
+                <td className="p-3 lowercase border-b">{row.name}</td>
+                <td className="p-3 lowercase border-b">{row.trigger}</td>
+                <td className="p-3 lowercase border-b">{row.action}</td>
+                <td className={`p-3 lowercase border-b ${getStatusStyle(row.status)}`}>
                   {row.status}
                 </td>
               </tr>

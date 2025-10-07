@@ -13,8 +13,8 @@ export default function Home() {
     <div className="font-sans bg-white text-black">
       <Navbar />
       <HeroSection />
-      <ClientLogos />
-      <VideoSection />
+      {/* <ClientLogos /> */}
+      {/* <VideoSection /> */}
       <DashboardSection/>
       <ResourcesSection/>
       <PricingSection/>

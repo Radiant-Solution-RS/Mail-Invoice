@@ -18,14 +18,14 @@ const StepFilters = () => {
 
   return (
     <div>
-      <h3 className="text-xl font-bold text-center mb-6">Choose Filters</h3>
+      <h3 className="text-xl font-bold lowercase text-center mb-6">Choose Filters</h3>
 
       <div className="grid grid-cols-2 gap-6">
         {filters.map((filter) => (
           <label
             key={filter.id}
             onClick={() => toggleFilter(filter.id)}
-            className={`flex items-center gap-3 border rounded-lg p-4 cursor-pointer hover:bg-gray-50 transition ${
+            className={`flex items-center gap-3 border lowercase rounded-lg p-4 cursor-pointer hover:bg-gray-50 transition ${
               filter.checked ? "border-black shadow-sm" : "border-gray-300"
             }`}
           >
@@ -35,7 +35,7 @@ const StepFilters = () => {
               onChange={() => toggleFilter(filter.id)}
               className="w-4 h-4"
             />
-            <span className="text-gray-800 font-medium">{filter.label}</span>
+            <span className="text-gray-800 lowercase font-medium">{filter.label}</span>
           </label>
         ))}
       </div>
